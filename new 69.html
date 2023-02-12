@@ -4,20 +4,33 @@
 <link rel="icon" href="IMG_20201014_133812.jpg" type="image/x.icon">
 <body bgcolor="green">
 <form action="new 7.html" method="form">
-<p>E-mail:
-<input type="text" placeholder="E-mail" name="E-mail" id="E-mail">
+<p><fieldset>
+<legend>Personal Info</legend>
+E-mail:
+<input type="text" placeholder="E-mail" name="E-mail" id="E-mail" max="10" size="50">
+</p>
+<p>M.no.:<select name="Country code" id="cc">
+<option>+91</option>
+<option>+1</option>
+<option>+92</option>
+<option>+33</option>
+</select>
+<input type="number" placeholder="M.no." name="M.no." id="M.no." min="1000000000" max="9999999999" size="50">
 </p>
 <p>Password:
-<input type="password" placeholder="Password" name="password" id="pwd">
+<input type="password" placeholder="Password" name="password" id="pwd" max="60" size="50">
 </p>
-<p>Gender:
-<input type="radio" name="male" id="1st gender">Male &nbsp;
-<input type="radio" name="female" id="2nd gender">Female &nbsp;
-</p>
+<p>Date and time of Birth: <input type="datetime-local" name="Date and time of birth" size="50"></p></fieldset><hr>
+<p><fieldset>
+<legend> More Personal info</legend>
+Gender:
+<input type="radio" name="gender" id="1st gender" value="Male">Male &nbsp;
+<input type="radio" name="gender" id="2nd gender" value="Female">Female &nbsp;
+</p><hr>
 <p>Liking things:
-<input type="checkbox" name="studying" id="hobby1">Studying &nbsp;
-<input type="checkbox" name="playing" id="hobby2">Playing &nbsp;
-</p>
+<input type="checkbox" name="Liking things" id="hobby1" value="Studying">Studying &nbsp;
+<input type="checkbox" name="Liking things" id="hobby2" value="Playing">Playing &nbsp;
+</p><hr>
 <p>Country:
 <select name="Country" id="country">
 <option>India</option>
@@ -25,12 +38,13 @@
 <option>Pakistan</option>
 <option>France</option>
 </select>
-</p>
+</p></fieldset><hr>
+<fieldset><legend> Comments </legend>
 <p>Comments:<br>
-<textarea rows="10" cols="70" id="write" name="comments">Write what you want.</textarea></p>
-<p>
+<textarea rows="10" cols="70" id="write" name="comments" placeholder="Write what you want."></textarea></p><hr>
+<p></fieldset><br>
 <input type="submit" value="Go to another form">
-<input type="reset" value="Clear this form"></p>
+<input type="reset" value="Clear this form"></p><hr>
 </form>
 </body>
 </head>
