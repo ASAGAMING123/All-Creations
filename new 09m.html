@@ -1,0 +1,69 @@
+<html>
+<head>
+<link rel="icon" href="IMG_20201014_133812.jpg" type="image/x.icon">
+	<title>Duck Hunt Game</title>
+	<style>
+	body{cursor: url("gun.png"), text;
+	padding: 0;
+	margin: 0;}
+		canvas {
+			border: 1px solid black;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+<body onclick="document.getElementById('sound1').play();">
+<audio id="sound1" src="hand clap.wav" preload="auto"></audio>
+	<canvas id="canvas" width="800" height="600"></canvas>
+
+	<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var background = new Image();
+background.src = "background.png";
+var duck = new Image();
+duck.src = "duck.png";
+var gun = new Image();
+gun.src = "gun.png";
+var duck_x = Math.random() * canvas.width;
+var duck_y = Math.random() * canvas.height;
+var duck_speed = 5;
+var score = 0;
+
+canvas.addEventListener("mousedown", function(event) {
+  var mouse_x = event.clientX - canvas.offsetLeft;
+  var mouse_y = event.clientY - canvas.offsetTop;
+  if (mouse_x >= duck_x && mouse_x <= duck_x + duck.width && mouse_y >= duck_y && mouse_y <= duck_y + duck.height) {
+    score++;
+    resetDuck();
+  } else {
+    score--;
+  }
+});
+
+function gameLoop() {
+  duck_x += duck_speed;
+  if (duck_x > canvas.width) {
+    resetDuck();
+  }
+
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(duck, duck_x, duck_y);
+  
+  ctx.fillStyle = "white";
+  ctx.font = "24px Arial";
+  ctx.fillText("Score: " + score, 10, 30);
+
+  requestAnimationFrame(gameLoop);
+}
+function resetDuck() {
+  duck_x = Math.random() * canvas.width;
+  duck_y = Math.random() * canvas.height;
+  duck_speed = 5 + Math.random() * 5;
+}
+resetDuck();
+gameLoop();
+	</script>
+</body>
+</html>
