@@ -5,5 +5,5 @@ for i in range(0,len(myList)):
 print("Another program")
 n = int(input("Enter a number(to repeat the following series till that number):"))
 for i in range(1,n+1):
-    print(i**2)
+    print(i**2, end=",")
     
