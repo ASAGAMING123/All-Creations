@@ -5,7 +5,19 @@
 <style>
 body{ background: linear-gradient(green,blue,yellow);}
 </style>
-<body>
+<script>
+function SeeUserInput(){
+const name = document.getElementById("name").value;
+const Class = document.getElementById("class").value;
+var output = document.getElementById("message");
+var city = document.getElementsByName("City");
+var i;
+for (i=0; i<=city.length; i++){
+if(city[i].checked){
+output.innerHTML = "My name is " + name + " and I am studying in " + Class + " and my choice for School Trip is " + city[i].value + ".";
+}}}
+</script>
+<body text="dark red">
 <form action="new 9.html" method="get">
 <p>Name of the student: &nbsp;
 <input type="text" name="name of the student" id="name"></p>
@@ -18,8 +30,10 @@ body{ background: linear-gradient(green,blue,yellow);}
 <input type="radio" name="City" id="city4" value="Manali">Manali
 </p>
 <p> <input type="submit" value="Submit all the forms">
-<input type="reset" value="Clear this form"</p>
+<input type="reset" value="Clear this form"></p>
 </form>
+<button onclick="SeeUserInput()"> See user input </button>
+<p id="message"></p>
 </body>
 </head>
 </html>

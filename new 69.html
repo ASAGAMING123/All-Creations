@@ -3,14 +3,45 @@
 <title>My Forms</title>
 <link rel="icon" href="IMG_20201014_133812.jpg" type="image/x.icon">
 <style>
-body{ background: linear-gradient(green,blue,yellow);}
+body{ background: linear-gradient(green,#73D4CF,yellow);}
 </style>
-<body>
+<script>
+function SeeUserInput(){
+const Email = document.getElementById("Email").value;
+const cc = document.getElementById("cc").value;
+const Mno = document.getElementById("M.no.").value;
+const pwd = document.getElementById("pwd").value;
+const dob = document.getElementById("dob").value;
+const country = document.getElementById("country").value;
+const comments = document.getElementById("write").value;
+document.getElementById("message").innerHTML = Email +" "+cc +" " + Mno +" with password " + pwd +" You are Signed in!";
+document.getElementById("message2").innerHTML = "You have typed in comments: "+ comments;
+const hobby1 = document.getElementById("hobby1");
+const hobby2 = document.getElementById("hobby2");
+const output = document.getElementById("message1");
+var gender = document.getElementsByName("gender");
+var i;
+for (i=0; i<=gender.length; i++){
+if(gender[i].checked){
+if(hobby1.checked && hobby2.checked){
+output.innerHTML = "I know you were born on " + dob +" at "+country + " and you are " + gender[i].value + " and you are liking to " + hobby1.value + " and " + hobby2.value  + ".";
+}
+else if(hobby2.checked){
+output.innerHTML = "I know you were born on " + dob +" at "+country + " and you are " + gender[i].value + " and you are liking to " + hobby2.value + ".";;
+}
+else if(hobby1.checked){
+output.innerHTML = "I know you were born on " + dob +" at "+country + " and you are " + gender[i].value + " and you are liking to " + hobby1.value + ".";
+} else {
+output.innerHTML = "I know you were born on " + dob +" at "+country + " and you are " + gender[i].value + " and you are liking to do nothing."
+}
+}}}
+</script>
+<body text = "blue">
 <form action="new 7.html" method="form">
 <p><fieldset>
 <legend>Personal Info</legend>
 E-mail:
-<input type="text" placeholder="E-mail" name="E-mail" id="E-mail" max="10" size="50">
+<input type="text" placeholder="E-mail" name="E-mail" id="Email" max="10" size="50">
 </p>
 <p>M.no.:<select name="Country code" id="cc">
 <option>+91</option>
@@ -23,12 +54,12 @@ E-mail:
 <p>Password:
 <input type="password" placeholder="Password" name="password" id="pwd" max="60" size="50">
 </p>
-<p>Date and time of Birth: <input type="datetime-local" name="Date and time of birth" size="50"></p></fieldset><hr>
+<p>Date and time of Birth: <input type="datetime-local" id="dob" name="Date and time of birth" size="50"></p></fieldset><hr>
 <p><fieldset>
 <legend> More Personal info</legend>
 Gender:
-<input type="radio" name="gender" id="1st gender" value="Male">Male &nbsp;
-<input type="radio" name="gender" id="2nd gender" value="Female">Female &nbsp;
+<input type="radio" name="gender" id="gender" value="Male">Male &nbsp;
+<input type="radio" name="gender" id="gender" value="Female">Female &nbsp;
 </p><hr>
 <p>Liking things:
 <input type="checkbox" name="Liking things" id="hobby1" value="Studying">Studying &nbsp;
@@ -49,6 +80,10 @@ Gender:
 <input type="submit" value="Go to another form">
 <input type="reset" value="Clear this form"></p><hr>
 </form>
+<button onclick="SeeUserInput()"> See user input </button>
+<p id="message"></p>
+<p id="message1"></p>
+<p id="message2"></p>
 </body>
 </head>
 </html>
