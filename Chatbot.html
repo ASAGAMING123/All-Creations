@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Chatbot</title>
+   <style>body {
+   background: linear-gradient(lightgreen,lightblue,yellow);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.chat-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.chat-box {
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.bot {
+    background-color: #cce5ff;
+    align-self: flex-start;
+}
+
+.user-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.user-input input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.user-input button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="chat-message bot">Hello! How can I help you today?</div>
+        </div>
+        <div class="user-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>function sendMessage() {
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
+
+    const chatBox = document.getElementById('chat-box');
+    const userMessage = document.createElement('div');
+    userMessage.textContent = userInput;
+    userMessage.className = 'chat-message';
+    chatBox.appendChild(userMessage);
+
+    // Replace the following line with actual chatbot logic or API calls for responses.
+    const botResponse = "I'm just a simple chatbot, but you're awesome!";
+    
+    const botMessage = document.createElement('div');
+    botMessage.textContent = botResponse;
+    botMessage.className = 'chat-message bot';
+    chatBox.appendChild(botMessage);
+
+    document.getElementById('user-input').value = '';
+}
+</script>
+</body>
+</html>
