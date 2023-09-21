@@ -1,6 +1,6 @@
-num_1 = float(input("Enter a number:"))
+num_1 = complex(input("Enter a number:"))
 operator = str(input("Enter the operator:"))
-num_2 = float(input("Enter a number:"))
+num_2 = complex(input("Enter a number:"))
 if operator == "+":
  num_3 = num_1 + num_2
  print(f"The result is {num_3}.")
