@@ -25,6 +25,6 @@ while True:
   print(num_1,operator,num_2,"=",num_3,"\n")
  elif operator == "%":
   num_3 = (num_1/100) * num_2
-  print(num_1,operator,num_2,"=",num_3,"\n")
+  print(num_1,operator,"of",num_2,"=",num_3,"\n")
  else:
   print("Invalid operation!","\n")
